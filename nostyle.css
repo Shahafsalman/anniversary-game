@@ -1,0 +1,47 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 2px gray;
+    background-image: url(67660.jpg);
+    
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 80px;
+}
+
+button {
+    font-size: 20px;
+    padding: 15px 30px;
+    border-radius: 40px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.6);
+    border-color: red;
+    background-color: white;
+    cursor: pointer;
+}
+
+img {
+    width: 250px;
+}
+
+#sad-img {
+    height: 3em;
+    width: auto;
+    margin-left: 15px;
+    transform: translateY(-20px);
+}
+
+#promise-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    font-family: "Lucida Console", "Courier New", monospace;
+}

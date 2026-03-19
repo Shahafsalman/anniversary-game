@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="mainstyle.css">
+    <link rel="stylesheet" href="question.css">
+    <title>quiz</title>
+</head>
+
+<body>
+    <div id="start-screen">
+        <h1>💖 how well do you know us ? 💖</h1>
+        <button onclick="startQuiz()">Start</button>
+    </div>
+      
+    <div id="quiz-box" style="display: none;">
+        <h1 id="question"></h1>
+        <div id="answers"></div>
+        <div id="result"></div>
+        <button id="next-btn" style="display: none;">Next</button>
+    </div>
+
+    <div id="result-screen" style="display: none;">
+        <h1 id="result-text"></h1>
+        <button id="continue-btn">Continue 💕</button>
+        <a href="game.html" id="back-btn" style="display: none;">press for a surprise</a>
+    </div>
+
+    
+
+    <script>
+        const quiz = [
+            {
+                question: "מה אנחנו הכי אוהבים לאכול ביחד? 💕",
+                answers: ["סושי", "פיצה", "פסטה", "הכל"],
+                correct: 3
+            },
+            {
+                question: "כמה פעמים כתוב בשיחת וואטסאפ שלנו ״אני אוהב/ת אותך״ ?",
+                answers: ["2", "215", "154", "531"],
+                correct: 1
+            },
+            {
+                question: "מי יותר בוכה משנינו?",
+                answers: ["שחף", "נדב"],
+                correct: 0
+            },
+            {
+                question: "מה הכי סביר שיקרה כשאני אומרת ״לא משנה״ ?",
+                answers: ["זה באמת לא משנה", "זה ממש משנה", "שכחתי מה רציתי", "אני בוחנת אותך"],
+                correct: 1
+            }, 
+            {
+                question: "מה השם חיבה האהוב עליי שלך?",
+                answers: ["נוני", "נוני בנוני", "בלונקי", "נדבי", "קוש", "קוש בלון"],
+                correct: 4
+            }, 
+            {
+                question: "איזה ציור מהבאים לא ציירתי לך ?",
+                answers: ["בטטי", "דינוזאור", "פופקורן", "אוראו", "פרה"],
+                correct: 3
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        function startQuiz() {
+            document.getElementById("start-screen").style.display = "none";
+            document.getElementById("quiz-box").style.display = "block";
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const q = quiz[currentQuestion];
+
+            document.getElementById("question").innerText = q.question;
+            document.getElementById("result").innerText = "";
+
+            const answersDiv = document.getElementById("answers");
+            answersDiv.innerHTML = "";
+
+            q.answers.forEach((answer, index) => {
+                const btn = document.createElement("button");
+                btn.innerText = answer;
+                btn.classList.add("answer-btn");
+                btn.onclick = () => selectAnswer(index);
+                answersDiv.appendChild(btn);
+            });
+        }
+
+        function selectAnswer(index) {
+    const correct = quiz[currentQuestion].correct;
+
+    const resultText = document.getElementById("result-text");
+
+    // hide quiz
+    document.getElementById("quiz-box").style.display = "none";
+    document.getElementById("result-screen").style.display = "flex";
+
+    if (index === correct) {
+        resultText.innerText = "Correct 💖";
+
+        document.getElementById("continue-btn").innerText = "Continue 💕";
+
+        // mark that we should move forward
+        document.getElementById("continue-btn").dataset.correct = "true";
+    } else {
+        resultText.innerText = "Wrong 😢";
+
+        document.getElementById("continue-btn").innerText = "try again 💕";
+
+        // mark that we should stay
+        document.getElementById("continue-btn").dataset.correct = "false";
+    }
+}
+
+document.getElementById("continue-btn").onclick = () => {
+    const isCorrect = document.getElementById("continue-btn").dataset.correct === "true";
+
+    if (isCorrect) {
+        currentQuestion++;
+    }
+
+    if (currentQuestion < quiz.length) {
+        document.getElementById("quiz-box").style.display = "block";
+        document.getElementById("result-screen").style.display = "none";
+        showQuestion();
+    } else {
+        document.getElementById("result-text").innerText = "ניייי סיימת יאיי  💖";
+        document.getElementById("continue-btn").style.display = "none";
+        document.getElementById("back-btn").style.display = "block";
+    }
+};
+    </script>
+</body>
+</html>

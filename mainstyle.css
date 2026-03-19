@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 2px gray;
+    background-image: url(67660.jpg);
+    font-family: "DynaPuff", system-ui;
+}
+
+.helloTitle h1 {
+    font-size: 60px;
+}
+
+h1 {
+    font-size: 80px;
+}
+h2 {
+    font-size: 30px;
+}
+
+
+#buttons {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    margin: 40px;
+    
+}
+
+button {
+    font-size: 20px;
+    padding: 15px 30px;
+    border-radius: 40px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.6);
+    border-color: red;
+    background-color: white;
+    cursor: pointer;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+p {
+    letter-spacing: 2px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+#game-name {
+    font-size: 50px;
+    margin-top: 2px;
+}

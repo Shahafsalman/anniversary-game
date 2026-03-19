@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>End Page Buz</title>
+        <link rel="stylesheet" href="mainstyle.css">
+        <link rel="stylesheet" href="end.css">
+    </head>
+    
+    <body>
+        <h1>happy 2 year anniversary</h1>
+        <h1>אני אוהבת אותך קוש</h1>
+
+        
+        <script>
+            const images = [
+                "IMG_0277.HEIC",
+                "IMG_1225.HEIC",
+                "IMG_1722.HEIC",
+                "IMG_5961.HEIC",
+                "IMG_7195.HEIC",
+                "IMG_0356.jpg",
+                "IMG_0357.jpg",
+                "IMG_0358.jpg",
+                "IMG_0359.jpg",
+                "piccute.jpg",
+                "IMG_6042.HEIC"
+            ];
+
+            function createRandomImage() {
+            const img = document.createElement("img");
+
+            img.src = images[Math.floor(Math.random() * images.length)];
+            img.classList.add("floating-img");
+
+            img.style.left = Math.random() * window.innerWidth + "px";
+            img.style.top = Math.random() * window.innerHeight + "px";
+
+            document.body.appendChild(img);
+        }
+
+        setInterval(createRandomImage, 500);
+        </script>
+
+
+    </body>
+</html>
